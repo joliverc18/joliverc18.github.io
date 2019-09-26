@@ -1,0 +1,478 @@
+/*
+HOVER COLOR: #52a8ff
+BG COLOR: #74b9ff
+*/
+
+/* ---------------------------------------------- */
+/*  BASIC SETUP */
+/* ---------------------------------------------- */
+* {
+/*First thing to do before starting*/
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    /*This is the boldness of the words*/
+    font-weight: 300;
+    font-size: 20px;
+    /*This will render the font nicely*/
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+/* ---------------------------------------------- */
+/*  REUSABLE COMPONENTS */
+/* ---------------------------------------------- */
+.row {
+    max-width: 1140px;
+/*top and bottom will be 0, left and right will be auto*/
+    margin: 0 auto;
+}
+
+section {
+    padding: 80px 0;
+}
+.box {
+    padding: 1%;
+}
+
+.author {
+    height: 220px;
+    width: 20%;
+}
+
+.author img {
+    height: 200px;
+    width: 100%;
+    border-radius: 50%;
+    
+}
+
+.about {
+    width: 75%;
+}
+
+/* ----- HEADINGS -----*/
+h1,
+h2,
+h3 {
+    font-weight: 300;
+    /*controls text cases and capitalization*/
+    text-transform: uppercase;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 240%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h2:after {
+    display: block;
+    height: 2px;
+    background-color: #52a8ff;
+    content: "";
+    width: 100px;
+    margin: 30px auto;
+}
+
+h3 {
+    font-size: 110%;
+    word-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+h4 {
+    font-weight: 300;
+    font-size: 90%;
+    word-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+/* ----- PARAGRAPHS -----*/
+.long-copy {
+    line-height: 145%;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.box p {
+    font-size: 90%;
+    line-height: 145%;
+}
+
+
+/* ----- ICONS -----*/
+
+.icon-big {
+    font-size: 350%;
+    display: block;
+    color: #74b9ff;
+    margin-bottom: 10px;
+}
+
+/* ----- AUTHOR -----*/
+
+.row img {
+    height: 120px;
+    /*To maintain the aspect ratio of the image we set width to auto*/
+    width: auto;
+    margin-bottom: 10px;
+    
+}
+
+/* ----- BUTTONS ----- */
+/*Pseudo-classes*/
+/*State pf the link when visited*/
+/*The link, visited here is dictate such that it looks the same even when clicked*/
+.btn:link,
+.btn:visited,
+input[type=submit] {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    /*change the background color over a period of 0.25s; simple animation*/
+    -webkit-transition: background-color 0.25s, border 0.25s, color 0.25s;
+    transition: background-color 0.25s, border 0.25s, color 0.25s;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit] {
+    background-color: #74b9ff;
+    border: 1px solid #74b9ff;
+    color: #fff;
+    margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: 1px solid #74b9ff;
+    color: #74b9ff;
+}
+
+/*Pseudo-classes for the state of button during hover and active*/
+/*This creates the transition*/
+.btn:hover,
+.btn:active 
+input[type=submit]:hover,
+input[type=submit]:active {
+    /*A slight differenciation of color in background*/ 
+    background-color: #52a8ff;
+}
+
+.btn-full:hover,
+.btn-full:active,
+input[type=submit] {
+    /*A slight differenciation of color in border*/
+    border: 1px solid #52a8ff;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    /*A slight differenciation of color in border and font color*/
+    border: 1px solid #52a8ff;
+    color: #fff;
+}
+
+/* ---------------------------------------------- */
+/*  HEADER */
+/* ---------------------------------------------- */
+header {
+    /*linear-gradient is used to add a dark shade layer over the image*/
+    /*we just use a black to black with some transparency*/
+    /*This is similar to using 2 background image*/
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(imgs/bg.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(imgs/bg.jpg);
+    /*This will prevent the image from being zoomed in to fill the space*/
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /*This sets it to 100% of the viewport*/
+    height: 100vh;
+}
+
+.hero-text-box {
+/*    only w/ absolute positioning can we center it horizontally and vertically*/
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+/*    This is to reposition the element horizontally/vertically */
+/*    1st arg: x-axis, 2nd arg: y-axis  */
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    /*width is auto to keep the aspect resolution of the logo image*/
+    height: 100px;
+    width: auto;
+    float: left;
+    margin-top: 20px;
+}
+
+.logo-black {
+    display: none;
+    height: 25px;
+    width: auto;
+    float: left;
+    margin-top: 5px;
+}
+
+/* Main nav */
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 55px;
+}
+
+.main-nav li {
+    /*display list items horizontally instead of vertically*/
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    /*Have to created a border here before creating the hover state*/
+    border-bottom: 2px solid transparent;
+    -webkit-transition: border-bottom 0.25s;
+    transition: border-bottom 0.25s;
+    padding: 8px 0;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    /*If no border created prior to this, there will be no visible changes*/
+    border-bottom: 2px solid #52a8ff;
+}
+
+/* Mobile navi */
+.nav-icon {
+    float: right;
+    margin-top: 10%;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-icon i {
+    font-size: 180%;
+    color: #fff;
+}
+
+/* Sticky navi */
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.96);
+    -webkit-box-shadow: 0 2px 2px #ebebeb;
+    box-shadow: 0 2px 2px #ebebeb;
+/*    set this priority top for showing first*/
+    z-index: 9999;
+}
+
+.sticky .main-nav {
+    margin-top: 18px;
+}
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+    color: #555;
+    padding: 23px 0;
+}
+
+.sticky .logo { display: none; }
+
+.sticky .logo-black {
+    display: block;
+    height: 50px;
+    margin-top: 5px 0;
+}
+
+/* ----- PROJECT ----- */
+.section-project {
+     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(imgs/bg2.jpg);
+     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(imgs/bg2.jpg);
+    /*This will prevent the image from being zoomed in to fill the space*/
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /*This sets it to 100% of the viewport*/
+    height: 100vh;
+}
+
+/* ----- RESUME -----*/
+.section-resume,
+.section-contact {
+    background-color: #f4f4f4;
+}
+
+.experience-education-box,
+.skills-box {
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    width: 100%;
+    margin: 3% 5%;
+    padding: 10px 30px;
+    position: relative;
+    float: left;
+    padding-right: 5%;
+}
+
+.skills-box {
+    float: right;
+    width: 70%;
+}
+.experience-label {
+    font-size: 180%;
+    margin: 25px;
+}
+
+.exp1-title,
+.school {
+    font-size: 130%;
+    margin-bottom: 10px;
+}
+
+.experience-1,
+.education-1,
+.education-2 {
+    margin-bottom: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.skills-general,
+.skills-os,
+.skills-vc,
+.skills-tools,
+.skills-web {
+    margin: 15px;
+}
+
+/* ----- CONTACT -----*/
+.section-contact {
+    height: 100vh;
+}
+
+.contact-box,
+.contact-form {
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    height: 135px;
+    position: relative;
+    float: left;
+    word-wrap: break-word;
+}
+
+.contact-box {
+    padding: 15px 25px;
+    margin-left: 25%;
+    padding-bottom: 30px;
+    width: 22%;
+    height: 155px;
+}
+
+.contact-form {
+    height: auto;
+    width: 40%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 16px;
+    padding: 15px 15px
+}
+
+input[type=text],
+input[type=email],
+select,
+textarea {
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #d4d0d0;
+}
+
+.form-messages {
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.success p {
+    color: #74b9ff;
+}
+
+.error {
+    color: red;
+}
+
+/* ----- GAP -----*/
+.gap {
+     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(imgs/bg3.jpg);
+     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(imgs/bg3.jpg);
+    /*This will prevent the image from being zoomed in to fill the space*/
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /*This sets it to 100% of the viewport*/
+    height: 100vh;
+}
+
+/* ----- FOOTER ----- */
+footer {
+    background-color: #333;
+    padding: 50px;
+    font-size: 80%;
+}
+
+footer p {
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
